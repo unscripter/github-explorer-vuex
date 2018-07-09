@@ -23,7 +23,7 @@ import NavMenu from '@/components/NavMenu'
 export default {
   data() {
     return {
-      openDrawrer: true,
+      openDrawrer: false,
       wait: false,
     }
   },
