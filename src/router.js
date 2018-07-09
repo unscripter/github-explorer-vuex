@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ProfileView from './views/ProfileView.vue'
-import About from './views/About.vue'
+// import About from './views/About.vue'
 import App from './App'
 // import RepoList from '@/components/RepoList'
 // import RepoDetail from '@/components/RepoDetails'
@@ -32,10 +32,10 @@ export default new Router({
           }
       ]
   },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    }
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   component: About
+    // }
   ]
 })
