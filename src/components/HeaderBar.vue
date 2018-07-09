@@ -1,0 +1,49 @@
+<template>
+        <div :class="['app-header']" ref="app-header">
+            <a @click="toggleDrawrer"><i class="fa fa-bars"></i></a>
+            <!-- <router-link v-for="item in navItems" :key="item.name" :to="item.to">{{item.name}}</router-link> -->
+            <span><b>GITHUB EXPLORER</b></span>
+        </div>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                navItems: [{name: 'Home', to: '/'}, {name: 'About', to: '/about'}],
+                openDrawrer: false
+            }
+        },
+        props: ['showMenu'],
+        methods: {
+            toggleDrawrer() {
+                debugger
+                this.openDrawrer = !this.openDrawrer
+                this.$emit('showMenu', this.openDrawrer);
+            }
+        }
+    }
+</script>
+
+<style lang="scss">
+.app-header {
+    font-size: 20px;
+  a {
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+  span {
+    color: white;
+    padding-left: 600px;
+   @media (max-width: 768px) {
+       padding-left: 70px;
+       font-size: 15px;
+    }   
+  }
+}
+</style>
+
