@@ -72,8 +72,6 @@ export default {
 </script>
 
 <style lang="scss">
-// #headerHeight: 60px;
-
 #user-page {
     background-color: #f5f5f5;
     padding-bottom: 20px;
