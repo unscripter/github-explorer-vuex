@@ -6,22 +6,25 @@
         </div>
 </template>
 <script>
-    export default {
-        data() {
-            return {
-                navItems: [{name: 'Home', to: '/'}, {name: 'About', to: '/about'}],
-                openDrawrer: false
-            }
-        },
-        props: ['showMenu'],
-        methods: {
-            toggleDrawrer() {
-                debugger
-                this.openDrawrer = !this.openDrawrer
-                this.$emit('showMenu', this.openDrawrer);
-            }
+import { mapActions } from 'vuex';
+
+export default {
+    data() {
+        return {
+            navItems: [{name: 'Home', to: '/'}, {name: 'About', to: '/about'}],
         }
+    },
+    props: ['showMenu'],
+    methods: {
+        ...mapActions([
+        'changeNavbarVisibleStatus'
+    ]),
+    toggleDrawrer() {
+        debugger;
+        this.changeNavbarVisibleStatus();
     }
+    }
+}
 </script>
 
 <style lang="scss">

@@ -33,6 +33,8 @@
 // import SearchInput from '@/components/SearchInput'
 import api from '@/api'
 // import Avatar from '@/components/Avatar'
+import { mapActions } from 'vuex';
+
 export default {
     data() {
         return {
@@ -46,6 +48,9 @@ export default {
     },
     props: ['showMenu'],
     methods: {
+        ...mapActions([
+        'changeNavbarVisibleStatus'
+        ]),
         getUsers() {
             this.searching = true;
             api('https://api.github.com/legacy/user/search/' +
@@ -65,7 +70,7 @@ export default {
                         username
                     }
                 });
-                this.$emit('showMenu', false);
+                this.changeNavbarVisibleStatus();
             }, 300);
         },
     },

@@ -1,11 +1,11 @@
 <template>
-  <div id="app" :class="{'sel': openDrawrer}" @scroll="handleScroll">
+  <div id="app" :class="{'sel': navbarVisible}" @scroll="handleScroll">
     <div :class="['navbar-closed']">
-      <NavMenu @showMenu="DrawrerMenu"></NavMenu>      
+      <NavMenu></NavMenu>      
     </div>
     <div :class="['navbar-open']">
       <div id="appNav" ref="headerbar">
-        <HeaderBar @showMenu="DrawrerMenu"></HeaderBar>
+        <HeaderBar></HeaderBar>
       </div>
       <router-view/>
       <div id="appFooter">
@@ -19,13 +19,18 @@
 import HeaderBar from '@/components/HeaderBar'
 import FooterBar from '@/components/FooterBar'
 import NavMenu from '@/components/NavMenu'
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
     return {
-      openDrawrer: false,
       wait: false,
     }
+  },
+  computed: {
+    ...mapGetters({
+        navbarVisible: 'getNavbarVisibleStatus'
+    })
   },
   components: {
     HeaderBar,
@@ -33,10 +38,6 @@ export default {
     NavMenu
   },
   methods: {
-    DrawrerMenu(data) {
-      this.openDrawrer = data;
-      debugger
-    },
     handleScroll () {
       debugger;
       if (window.screenY > 0) {
