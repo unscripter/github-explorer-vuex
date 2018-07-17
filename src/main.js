@@ -10,5 +10,8 @@ Vue.config.productionTip = false
 var vm = new Vue({
   router,
   store,
+  created () {
+    console.log("This value is", this);
+  },
   render: h => h(App),
 }).$mount('#app');
