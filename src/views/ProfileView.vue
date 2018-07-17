@@ -16,7 +16,7 @@
             </list-transition>
         </div>
     </div>
-</template>
+</template> 
 
 <script>
 import Profile from '@/components/Profile';
@@ -25,6 +25,9 @@ import ListTransition from '@/components/ListTransition';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
+    created() {
+        this.fetchData();
+    },
     computed: {
         ...mapGetters({
             profile: 'getProfile',
@@ -37,10 +40,7 @@ export default {
         ListTransition
     },
     watch: {
-        '$route': 'fetchData'
-    },
-    created() {
-        this.fetchData();
+        '$route': 'fetchData',
     },
     methods: {
         ...mapActions([
